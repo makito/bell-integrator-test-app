@@ -4,7 +4,16 @@
       <router-link to="/history">History</router-link>
     </div>
     <div class="content" v-if="!dataIsLoading">
-      This is Home page
+      <table>
+        <tr>
+          <td>
+            <BaseList :list-type="unselectedData" />
+          </td>
+          <td>
+            <BaseList :list-type="selectedData" />
+          </td>
+        </tr>
+      </table>
     </div>
     <div v-else>data is loading...</div>
   </div>
@@ -15,23 +24,43 @@ import { Component, Vue } from 'vue-property-decorator'
 import { AxiosResponse } from 'axios'
 import { State, Action } from 'vuex-class'
 
-import { CommonEntity } from '@/api/common.types'
 import { GET_DATA } from '@/store/types'
+import BaseList from '@/components/BaseList.vue'
+import { ListType } from '@/common/list-type.enum'
+import CommonExtendedEntity from '@/common/common-extended-entity.interface'
 
-@Component
+@Component({
+  components: {
+    BaseList
+  }
+})
 export default class Home extends Vue {
   @State('data')
-  data!: CommonEntity[]
+  private data!: CommonExtendedEntity[]
 
   @State('isLoading')
-  dataIsLoading!: boolean
+  private dataIsLoading!: boolean
 
   @Action(GET_DATA)
-  getData!: () => Promise<AxiosResponse<CommonEntity[]>>
+  private getData!: () => Promise<AxiosResponse<CommonExtendedEntity[]>>
+
+  private unselectedData = ListType.unselected
+
+  private selectedData = ListType.selected
 
   async created() {
     await this.getData()
-    console.log(this.data)
   }
 }
 </script>
+
+<style lang="scss" scoped>
+table {
+  width: 100%;
+  
+  td {
+    width: 50%;
+    vertical-align: top;
+  }
+}
+</style>

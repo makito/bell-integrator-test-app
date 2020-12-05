@@ -1,13 +1,18 @@
-import { CommonEntity } from '@/api/common.types'
+import CommonExtendedEntity from '@/common/common-extended-entity.interface'
 
 export interface RootState {
-  data: CommonEntity[] | null;
+  list: CommonExtendedEntity[];
   isLoading: boolean;
 }
 
 // mutations
 export const SAVE_DATA = 'saveData'
 export const LOAD_STATE = 'loadState'
+export const TOGGLE_ITEM_STATE = 'toggleItemState'
 
 // actions
 export const GET_DATA = 'getData'
+
+// getters
+export const GET_SELECTED = 'getSelected'
+export const GET_UNSELECTED = 'getUnselected'

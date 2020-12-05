@@ -10,7 +10,7 @@ Vue.use(Vuex)
 
 const store: StoreOptions<RootState> = {
   state: {
-    data: null,
+    list: [],
     isLoading: true,
   },
   getters,
