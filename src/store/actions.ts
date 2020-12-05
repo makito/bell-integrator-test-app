@@ -9,9 +9,9 @@ import { CommonEntity } from '@/api/common.types'
 export const actions: ActionTree<RootState, RootState> = {
   async [GET_DATA]({ commit }): Promise<AxiosResponse<CommonEntity[]>> {
     commit(LOAD_STATE, true)
-    const responce = await commonService.getAll()
-    commit(SAVE_DATA, responce.data)
+    const response = await commonService.getAll()
+    commit(SAVE_DATA, response.data)
     commit(LOAD_STATE, false)
-    return responce
+    return response
   },
 }
