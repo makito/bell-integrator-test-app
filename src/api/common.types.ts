@@ -1,10 +1,6 @@
 import { AxiosResponse } from 'axios'
 
-export interface CommonEntity {
-  id: number;
-  name: string;
-  items?: CommonEntity[];
-}
+import CommonEntity from '@/common/common-entity.interface'
 
 export interface CommonService {
   getAll(): Promise<AxiosResponse<CommonEntity[]>>;

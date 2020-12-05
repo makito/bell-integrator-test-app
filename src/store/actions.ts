@@ -3,7 +3,7 @@ import { AxiosResponse } from 'axios'
 
 import { RootState, SAVE_DATA, GET_DATA, LOAD_STATE } from '@/store/types'
 import commonService from '@/api/common.service'
-import { CommonEntity } from '@/api/common.types'
+import CommonEntity from '@/common/common-entity.interface'
 
 
 export const actions: ActionTree<RootState, RootState> = {
