@@ -1,6 +1,6 @@
 <template>
   <div :style="{paddingLeft: offsetLeft, paddingTop: offsetTop}">
-    <button v-on:click="toggleItemState(data.uid)" v-text="symbol"></button>&nbsp;<span v-text="data.name"></span>
+    <button v-on:click="toggle(data.uid)" v-text="symbol"></button>&nbsp;<span v-text="data.name"></span>
   </div>
 </template>
 
@@ -10,6 +10,7 @@ import { Mutation } from 'vuex-class'
 
 import { TOGGLE_ITEM_STATE } from '@/store/types'
 import CommonExtendedEntity from '@/common/common-extended-entity.interface'
+import { SAVE_EVENT } from '@/store/modules/history/types'
 
 @Component
 export default class BaseListItem extends Vue {
@@ -18,6 +19,9 @@ export default class BaseListItem extends Vue {
 
   @Mutation(TOGGLE_ITEM_STATE)
   private toggleItemState!: (uid: string) => void
+
+  @Mutation(SAVE_EVENT, { namespace: 'history' })
+  private saveEvent!: (payload: CommonExtendedEntity) => void
 
   private get symbol(): string {
     return this.data.selected ?
@@ -35,6 +39,11 @@ export default class BaseListItem extends Vue {
     return this.data.parent ?
       '0px' :
       '20px'
+  }
+
+  private toggle(uid: string): void {
+    this.saveEvent({...this.data})
+    this.toggleItemState(uid)
   }
 }
 </script>

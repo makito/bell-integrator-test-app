@@ -2,6 +2,7 @@ import CommonExtendedEntity from '@/common/common-extended-entity.interface'
 import { HistoryEvent } from '@/common/history-event.enum'
 
 export interface HistoryItem {
+  id: string;
   item: CommonExtendedEntity;
   eventDate: Date;
   event: HistoryEvent;
