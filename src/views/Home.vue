@@ -2,6 +2,8 @@
   <div>
     <div class="nav">
       <router-link to="/history">History</router-link>
+      <router-link to="/history/added">History added</router-link>
+      <router-link to="/history/removed">History removed</router-link>
     </div>
     <div class="content">
       <table>
