@@ -4,14 +4,29 @@
       <router-link to="/">Home</router-link>
     </div>
     <div class="content">
-      This is History page
+      <HistoryListItem
+        v-for="item in list"
+        :data="item"
+        :key="item.uid"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import { State } from 'vuex-class'
 
-@Component
-export default class History extends Vue {}
+import { HistoryItem } from '@/store/modules/history/types'
+import HistoryListItem from '@/components/HistoryListItem.vue'
+
+@Component({
+  components: {
+    HistoryListItem,
+  }
+})
+export default class History extends Vue {
+  @State('list', { namespace: 'history' })
+  private list!: HistoryItem[]
+}
 </script>
