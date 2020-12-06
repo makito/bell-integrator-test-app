@@ -6,6 +6,8 @@ import { actions } from '@/store/actions'
 import { mutations } from '@/store/mutations'
 import { RootState } from '@/store/types'
 
+import history from '@/store/modules/history'
+
 Vue.use(Vuex)
 
 const store: StoreOptions<RootState> = {
@@ -16,6 +18,9 @@ const store: StoreOptions<RootState> = {
   getters,
   actions,
   mutations,
+  modules: {
+    history,
+  }
 }
 
 export default new Vuex.Store<RootState>(store)
