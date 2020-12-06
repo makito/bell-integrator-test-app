@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div>
     <HistoryListItem
       v-for="item in list"
       :data="item"
@@ -34,15 +34,12 @@ export default class HistoryByType extends Vue {
     switch (this.$route.meta.type) {
       case ADDED:
         return this.listAdded
-        break
 
       case REMOVED:
         return this.listRemoved
-        break
     
       default:
         return this.listAll
-        break
     }
   }
 }

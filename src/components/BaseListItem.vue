@@ -1,6 +1,9 @@
 <template>
-  <div :style="{paddingLeft: offsetLeft, paddingTop: offsetTop}">
-    <button v-on:click="toggle(data.uid)" v-text="symbol"></button>&nbsp;<span v-text="data.name"></span>
+  <div :style="{paddingLeft: offsetLeft, marginTop: offsetTop}">
+    <button
+      v-on:click="toggle(data.uid)"
+      v-text="symbol"
+    ></button>&nbsp;<span v-text="data.name"></span>
   </div>
 </template>
 

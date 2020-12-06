@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="nav">
+    <AppHeader>
       <router-link to="/history">History</router-link>
       <router-link to="/history/added">History added</router-link>
       <router-link to="/history/removed">History removed</router-link>
-    </div>
-    <div class="content">
+    </AppHeader>
+    <AppContent>
       <table>
         <tr>
           <td>
@@ -17,7 +17,7 @@
           </td>
         </tr>
       </table>
-    </div>
+    </AppContent>
   </div>
 </template>
 
@@ -26,12 +26,16 @@ import { Component, Vue } from 'vue-property-decorator'
 import { Mutation, State } from 'vuex-class'
 
 import BaseList from '@/components/BaseList.vue'
+import AppHeader from '@/components/AppHeader.vue'
+import AppContent from '@/components/AppContent.vue'
 import { ListType } from '@/common/list-type.enum'
 import { SAVE_TEXT } from '@/store/types'
 
 @Component({
   components: {
-    BaseList
+    BaseList,
+    AppHeader,
+    AppContent,
   }
 })
 export default class Home extends Vue {
@@ -62,5 +66,10 @@ table {
     width: 50%;
     vertical-align: top;
   }
+}
+
+input {
+  display: block;
+  margin-bottom: 20px;
 }
 </style>
