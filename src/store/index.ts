@@ -14,6 +14,7 @@ const store: StoreOptions<RootState> = {
   state: {
     list: [],
     isLoading: true,
+    searchText: '',
   },
   getters,
   actions,

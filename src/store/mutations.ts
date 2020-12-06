@@ -4,7 +4,8 @@ import {
   RootState,
   SAVE_DATA,
   LOAD_STATE,
-  TOGGLE_ITEM_STATE
+  TOGGLE_ITEM_STATE,
+  SAVE_TEXT
 } from '@/store/types'
 import CommonEntity from '@/common/common-entity.interface'
 import { uid } from '@/common/helpers'
@@ -37,6 +38,10 @@ export const mutations: MutationTree<RootState> = {
       return item.uid === uid ?
         {...item, selected: !item.selected} :
         {...item}
-    }).sort((a, b) => a.index - b.index)
-  }
+    })
+  },
+
+  [SAVE_TEXT](state: RootState, text: string): void {
+    state.searchText = text
+  },
 }
