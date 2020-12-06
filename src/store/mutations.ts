@@ -7,7 +7,7 @@ import {
   TOGGLE_ITEM_STATE
 } from '@/store/types'
 import CommonEntity from '@/common/common-entity.interface'
-import { uid } from '@/store/helpers'
+import { uid } from '@/common/helpers'
 import CommonExtendedEntity from '@/common/common-extended-entity.interface'
 
 export const mutations: MutationTree<RootState> = {
