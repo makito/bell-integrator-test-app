@@ -3,6 +3,7 @@ import { GetterTree } from 'vuex'
 import { RootState } from '@/store/types'
 import {
   ADDED,
+  ALL,
   HistoryItem,
   HistoryState,
   REMOVED
@@ -17,4 +18,8 @@ export const getters: GetterTree<HistoryState, RootState> = {
   [REMOVED](state: HistoryState): HistoryItem[] {
     return state.list.filter(item => item.event === HistoryEvent.removing)
   },
+
+  [ALL](state: HistoryState): HistoryItem[] {
+    return state.list
+  }
 }

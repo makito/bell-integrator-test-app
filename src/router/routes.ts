@@ -2,10 +2,9 @@ import { RouteConfig } from 'vue-router'
 
 import Home from '@/views/Home.vue'
 import History from '@/views/History.vue'
-import HistoryAdded from '@/views/HistoryAdded.vue'
-import HistoryRemoved from '@/views/HistoryRemoved.vue'
-import HistoryAll from '@/views/HistoryAll.vue'
+import HistoryByType from '@/views/HistoryByType.vue'
 import Page404 from '@/views/404.vue'
+import { ADDED, ALL, REMOVED } from '@/store/modules/history/types'
 
 export const routes: Array<RouteConfig> = [
   {
@@ -22,23 +21,26 @@ export const routes: Array<RouteConfig> = [
     children: [
       {
         path: '',
-        component: HistoryAll,
+        component: HistoryByType,
         meta: {
-          title: 'History all'
+          title: 'History all',
+          type: ALL
         }
       },
       {
         path: 'added',
-        component: HistoryAdded,
+        component: HistoryByType,
         meta: {
-          title: 'History added'
+          title: 'History added',
+          type: ADDED
         }
       },
       {
         path: 'removed',
-        component: HistoryRemoved,
+        component: HistoryByType,
         meta: {
-          title: 'History removed'
+          title: 'History removed',
+          type: REMOVED
         }
       },
     ]

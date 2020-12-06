@@ -15,6 +15,7 @@ export interface HistoryState {
 // getters
 export const REMOVED = 'removed'
 export const ADDED = 'added'
+export const ALL = 'all'
 
 // mutations
 export const SAVE_EVENT = 'saveEvent'
