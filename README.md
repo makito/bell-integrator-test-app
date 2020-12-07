@@ -1,24 +1,9 @@
 # bell-integrator-test-app
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
 ```
+git clone https://github.com/makito/bell-integrator-test-app.git
+cd bell-integrator-test-app
+npm i
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

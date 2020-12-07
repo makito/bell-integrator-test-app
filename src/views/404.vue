@@ -8,6 +8,9 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
+/**
+ * компонент страницы 404
+ */
 @Component
 export default class Page404 extends Vue {}
 </script>

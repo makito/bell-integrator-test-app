@@ -10,6 +10,9 @@ import history from '@/store/modules/history'
 
 Vue.use(Vuex)
 
+/**
+ * сигнатура корневого хранилища
+ */
 const store: StoreOptions<RootState> = {
   state: {
     list: [],

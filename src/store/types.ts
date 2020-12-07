@@ -1,8 +1,16 @@
 import CommonExtendedEntity from '@/common/common-extended-entity.interface'
 
+/**
+ * сигнатура корневого хранилища
+ */
 export interface RootState {
+  // список объектов
   list: CommonExtendedEntity[];
+
+  // состояние загрузки данных
   isLoading: boolean;
+
+  // текст строки поиска
   searchText: string;
 }
 

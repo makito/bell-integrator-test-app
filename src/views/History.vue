@@ -15,6 +15,9 @@ import { Component, Vue } from 'vue-property-decorator'
 import AppHeader from '@/components/AppHeader.vue'
 import AppContent from '@/components/AppContent.vue'
 
+/**
+ * компонент корневой страницы истории событий
+ */
 @Component({
   components: {
     AppHeader,

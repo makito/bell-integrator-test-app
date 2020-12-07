@@ -11,8 +11,15 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 
 import { HistoryItem } from '@/store/modules/history/types'
 
+/**
+ * компонент списка истории действий
+ */
 @Component
 export default class HistoryListItem extends Vue {
+
+  /**
+   * данные события истории изменения состояния объекта
+   */
   @Prop()
   private data!: HistoryItem
 }

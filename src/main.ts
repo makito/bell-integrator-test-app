@@ -5,6 +5,8 @@ import store from './store'
 import { default as format } from 'date-fns/format'
 
 Vue.config.productionTip = false
+
+// регистрируем фильтр для отображения дат
 Vue.filter('date', (date: Date): string => {
   return format(date, 'HH:mm:ss')
 })

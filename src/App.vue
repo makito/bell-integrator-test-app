@@ -13,13 +13,21 @@ import CommonExtendedEntity from '@/common/common-extended-entity.interface'
 
 @Component
 export default class App extends Vue {
+
+  /**
+   * состояние загрузки данных по api
+   */
   @State('isLoading')
   private dataIsLoading!: boolean
 
+  /**
+   * метод получения данных по api
+   */
   @Action(GET_DATA)
   private getData!: () => Promise<AxiosResponse<CommonExtendedEntity[]>>
 
   async created() {
+    // получаем данные после создания компонента App
     await this.getData()
   }
 }

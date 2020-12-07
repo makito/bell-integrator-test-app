@@ -1,14 +1,28 @@
 import CommonExtendedEntity from '@/common/common-extended-entity.interface'
 import { HistoryEvent } from '@/common/history-event.enum'
 
+/**
+ * сигнатура объекта коллекции истории событий
+ */
 export interface HistoryItem {
+  // уникальный идентификатор элемента
   id: string;
+
+  // объект списка, у которого изменилось состояние
   item: CommonExtendedEntity;
+
+  // дата события
   eventDate: Date;
+
+  // тип события
   event: HistoryEvent;
 }
 
+/**
+ * сигнатура хранилища истории
+ */
 export interface HistoryState {
+  // коллекция событий истории
   list: HistoryItem[];
 }
 

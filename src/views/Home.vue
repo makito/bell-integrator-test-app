@@ -31,6 +31,9 @@ import AppContent from '@/components/AppContent.vue'
 import { ListType } from '@/common/list-type.enum'
 import { SAVE_TEXT } from '@/store/types'
 
+/**
+ * компонент главной страницы
+ */
 @Component({
   components: {
     BaseList,
@@ -39,16 +42,32 @@ import { SAVE_TEXT } from '@/store/types'
   }
 })
 export default class Home extends Vue {
+
+  /**
+   * текст поля поиска
+   */
   @State('searchText')
   private searchText!: string
 
+  /**
+   * метод сохранения текста поиска в хранилище
+   */
   @Mutation(SAVE_TEXT)
   private saveText!: (text: string) => void
 
+  /**
+   * тип списка не выбранных объектов
+   */
   private unselectedData = ListType.unselected
 
+  /**
+   * тип списка выбранных объектов
+   */
   private selectedData = ListType.selected
 
+  /**
+   * получение и сохранение текста для поиска в хранилище
+   */
   private get text(): string {
     return this.searchText
   }
